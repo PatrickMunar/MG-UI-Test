@@ -81,9 +81,7 @@ const images = []
 
 // Texture loader
 const textureLoader = new THREE.TextureLoader()
-images[0] = textureLoader.load('./images/q2.png')
-images[1] = textureLoader.load('https://i.imgbun.com/VnMN1I1c6fY.png')
-images[2] = textureLoader.load('https://i.imgbun.com/VnMN1I1c6fY.png')
+images[0] = textureLoader.load('./images/q2.PNG')
 
 // Draco loader
 const dracoLoader = new DRACOLoader()
@@ -324,6 +322,10 @@ const tick = () =>
     if (isQuestionIn == true) {
         m1.uniforms.uOffset.value.set((mouse.x - offset.x) * offsetGains.mx , (-(mouse.y - offset.y) * offsetGains.my * 16/9))
         m1.uniforms.uTime.value = elapsedTime
+        
+        p1g.position.y = Math.sin(elapsedTime) * 0.1
+        p1g.rotation.x = Math.sin(elapsedTime) * 0.05
+        p1g.rotation.y = Math.cos(elapsedTime) * 0.05
       
         // Camera
         cameraGroup.rotation.y = (mouse.x/window.innerWidth - 0.5) * 1
