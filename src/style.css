@@ -1,0 +1,74 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: white;
+    font-size: 1vh;
+    color: white;
+    /* cursor: none; */
+}
+
+body {
+    background-color: white;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    z-index: 100;
+    font-size: 10px;
+    box-sizing: border-box;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    width: 100vw;
+    height: 100vh;
+}
+
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+
+@media (orientation:portrait) {
+    html {
+        font-size: 1.25vw;
+    }
+}
+@media (orientation:landscape) {
+    html {
+        font-size: 1.25vh;
+    }
+}
+
+.webgl
+{
+    position: fixed;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.mainSlider {
+    height: 100vh;
+    width: 100vw;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+    height: 100vh;
+    width: 100vw;
+}
+
+.cursorFollower {
+    width: 20px;
+    height: 20px;
+    backdrop-filter: invert(100%);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+}
