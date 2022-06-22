@@ -282,10 +282,14 @@ window.addEventListener('click', () => {
     if (isRedacted == false) {
         redact()
         isRedacted = true
+        gsap.to(cameraGroup.rotation, {x: 0, y: 0})
     }
     else {
         unRedact()
-        isRedacted = false
+        gsap.to(cameraGroup.rotation, {duration: 0.1, y: (mouse.x/window.innerWidth - 0.5) * 1, x: (mouse.y/window.innerHeight - 0.5) * 0.5})
+        setTimeout(() => {
+            isRedacted = false
+        }, 100)
     }
 })
 
@@ -327,9 +331,11 @@ const tick = () =>
         p1g.rotation.x = Math.sin(elapsedTime) * 0.05
         p1g.rotation.y = Math.cos(elapsedTime) * 0.05
       
-        // Camera
-        cameraGroup.rotation.y = (mouse.x/window.innerWidth - 0.5) * 1
-        cameraGroup.rotation.x = (mouse.y/window.innerHeight - 0.5) * 0.5
+        if (isRedacted == false) {
+            // Camera
+            cameraGroup.rotation.y = (mouse.x/window.innerWidth - 0.5) * 1
+            cameraGroup.rotation.x = (mouse.y/window.innerHeight - 0.5) * 0.5
+        }
     }
 
     // Update controls
